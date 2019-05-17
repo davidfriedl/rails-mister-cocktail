@@ -9,6 +9,8 @@
       <%= simple_form_for(@cocktail) do |f| %>
         <%= f.input :name, label:false, placeholder: "name of the cocktail ...", input_html: {style: 'width: 300px'} %>
         <br>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
         <%= f.submit "add cocktail", class: "btn btn-primary" %>
       <% end %>
     </div>
