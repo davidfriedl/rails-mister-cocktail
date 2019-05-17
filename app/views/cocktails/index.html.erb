@@ -1,14 +1,20 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)), url(https://www.pelicanhillmagazine.com/files/banner-image-whiskey-pelican-hill-magazine-1600x600.jpg);">
+  <div class="container">
+    <h1>Mr. Cocktail brings <strong>alcohol</strong> to <strong>creative people</strong>!</h1>
+    <p>Change your life and get drunk.</p>
+    <!-- <a class="btn btn-primary" href="#show-cocktail-list">add your own</a> -->
+  </div>
+</div>
+
 <div class="container">
-  <h1>list of all cocktails</h1>
-
-  <ul>
-    <% @cocktails.each do |cocktail| %>
-      <li>
-        <%= link_to cocktail.name, cocktail_path(cocktail)  %>
-      </li>
-    <% end %>
-  </ul>
-
-  <p>Couldn't find your favorite cocktail?</p>
-  <%= link_to "create it", new_cocktail_path  %>
+  <h3 style="font-family: 'Oswald', sans-serif; font-weight: 700; text-align: center; padding-bottom: 50px; font-size: 50px; text-shadow: 1px 1px 1px grey;">Pick your favorite</h3>
+  <div class="row">
+      <% @cocktails.each do |cocktail| %>
+        <div class="col-md-3">
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url(https://cdn.shopify.com/s/files/1/0105/8732/products/WhiskeyWedge_1000x1000.png?v=1553023271);">
+            <%= link_to cocktail.name, cocktail_path(cocktail), {:id => "cocktail-name-card"}  %>
+          </div>
+        </div>
+      <% end %>
+    </div>
 </div>

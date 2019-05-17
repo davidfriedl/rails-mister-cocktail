@@ -1,20 +1,31 @@
+<div class="card-category-cocktail" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://ak0.picdn.net/shutterstock/videos/7522990/thumb/1.jpg)">
+  <%= @cocktail.name %>
+</div>
+
+
 <div class="container">
-  <h1><%=  @cocktail.name%></h1>
 
+  <div class="show-cocktail" id="show-cocktail-list"> <!-- flexbox -->
+    <div class="ingredient-list">
+      <!-- <h4>Ingredients</h4> -->
+      <div class="card" style="width: 18rem; margin-top: 34px;">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" style="font-size: 13px; color: grey;">you will need:</li>
+          <% @doses.each do |dose| %>
+            <li class="list-group-item">
 
-  <h4>Ingredients:</h4>
-  <% @doses.each do |dose| %>
-    <p><%= link_to "x", dose_path(dose), method: :delete  %> - <%= dose.ingredient.name %> - <%=dose.description %> </p>
-    <!-- link to delete? -->
+            <%= link_to dose_path(dose), method: :delete do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %> - <strong style="color: darkslategrey;"><%= dose.ingredient.name %></strong> - <em style="color: darkslategrey;"><%=dose.description %> </em>
+            </li>
+          <% end %>
+        </ul>
+      </div>
 
-  <% end %>
-
-  <div>
-    <%= render '/doses/form' %>
+    </div>
+    <div class="ingredient-form">
+      <%= render '/doses/form' %>
+    </div>
   </div>
-
-
-  <%= link_to "add an ingredient", new_cocktail_dose_path(@cocktail)  %> <br>
-  <%= link_to "back to home",  cocktails_path%>
 </div>
 

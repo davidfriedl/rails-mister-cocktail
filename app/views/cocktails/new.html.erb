@@ -1,10 +1,19 @@
-<div class="container">
-  <h1>Create a cocktail</h1>
 
-  <%= simple_form_for(@cocktail) do |f| %>
-    <%= f.label :name %>
-    <%= f.input :name, label:false, placeholder: "name of the cocktail ...", input_html: {style: 'width: 300px'} %>
-    <br>
-    <%= f.submit "submit cocktail", class: "btn btn-primary" %>
-  <% end %>
-</div>
+
+  <div class="create-box">
+    <div>
+      <img src="/assets/undraw_beer_celebration_3wc8.png" alt="" style="width: 100%; object-fit: cover; background-size: cover;">
+      </div>
+    <div class="create-form">
+      <h1 style="font-family: 'Oswald', sans-serif; margin-bottom: 40px;">add your Cocktail!</h1>
+      <%= simple_form_for(@cocktail) do |f| %>
+        <%= f.input :name, label:false, placeholder: "name of the cocktail ...", input_html: {style: 'width: 300px'} %>
+        <br>
+        <%= f.submit "add cocktail", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+
+
+
+
